@@ -20,13 +20,11 @@ public class LoginController {
     @FXML
     private TextField passwordTextField;
 
-
     @FXML
     private Label loginLabel;
 
     @FXML
     void login(ActionEvent event) {
-
         String userName = userNameTextField.getText();
         String password = passwordTextField.getText();
         if (userName.equals("")) {
@@ -34,22 +32,26 @@ public class LoginController {
         } else if (password.equals("")) {
             loginLabel.setText("Please enter a password");
         } else {
-            try (FileInputStream fileInputStream = new FileInputStream("Profiles.bin");
-                 ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
-                while (true) {
-                    PlayerProfile playerProfile = (PlayerProfile) objectInputStream.readObject();
-                    if (playerProfile == null) {
-                        loginLabel.setText("Your password or username is incorrect");
-                        break;
-                    } else if (playerProfile.getUserName().equals(userName) && playerProfile.getPassword().equals(password)) {
-                        //.........................
-                        break;
+            File[] files = new File("./").listFiles();
+            boolean availableUser = false;
+            for (File file : files) {
+                if (file.getName().equals(userName + ".bin")) {
+                    try (FileInputStream fileInputStream = new FileInputStream(userName + ".bin");
+                         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
+                        PlayerProfile playerProfile = (PlayerProfile) objectInputStream.readObject();
+                        if (playerProfile.getUserName().equals(userName) && playerProfile.getPassword().equals(password)) {
+                            availableUser = true;
+                            //................
+                        }
+                    } catch (IOException | ClassNotFoundException e) {
+                        e.printStackTrace();
                     }
+                    break;
                 }
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace(System.err);
             }
-
+            if (!availableUser) {
+                loginLabel.setText("Your password or username is incorrect");
+            }
         }
     }
 

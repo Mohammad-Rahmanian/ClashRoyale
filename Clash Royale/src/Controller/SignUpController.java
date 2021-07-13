@@ -45,32 +45,23 @@ public class SignUpController {
         } else if (password.equals("")) {
             signUpLabel.setText("Please enter a password");
         } else {
-            try (FileOutputStream fileOutputStream = new FileOutputStream("Profiles.bin", true);
-                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-                 FileInputStream fileInputStream = new FileInputStream("Profiles.bin");
-                 ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
-                while (true) {
-                    try {
-                        if (objectInputStream.available() != 0) {
-                            System.out.println("aaa");
-                            PlayerProfile playerProfile = (PlayerProfile) objectInputStream.readObject();
-                            if (playerProfile.getUserName().equals(userName)) {
-                                signUpLabel.setText("Username is duplicate");
-                                break;
-                            }
-                        } else {
-                            PlayerProfile playerProfile = new PlayerProfile(userName, password);
-                            System.out.println("pppp");
-                            objectOutputStream.writeObject(playerProfile);
-                            //..............
-                            break;
-                        }
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
+            File[] files = new File("./").listFiles();
+            boolean duplicateUser = false;
+            for (File file : files) {
+                if (file.getName().equals(userName + ".bin")) {
+                    signUpLabel.setText("Username is duplicate");
+                    duplicateUser = true;
+                    break;
                 }
-            } catch (IOException e) {
-                e.printStackTrace(System.err);
+            }
+            if (!duplicateUser) {
+                PlayerProfile playerProfile = new PlayerProfile(userName, password);
+                try (FileOutputStream fileOutputStream = new FileOutputStream(userName + ".bin");
+                     ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+                    objectOutputStream.writeObject(playerProfile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
