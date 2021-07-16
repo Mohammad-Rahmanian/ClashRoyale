@@ -41,7 +41,20 @@ public class LoginController {
                         PlayerProfile playerProfile = (PlayerProfile) objectInputStream.readObject();
                         if (playerProfile.getUserName().equals(userName) && playerProfile.getPassword().equals(password)) {
                             availableUser = true;
-                            //................
+                            //switch to menu
+                            Stage stage = (Stage) loginLabel.getScene().getWindow();
+                            try {
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/Menu.fxml"));
+                                Parent root = loader.load();
+                                MenuController menuController = loader.getController();
+                                menuController.setPlayerProfile(playerProfile);
+                                stage.setScene(new Scene(root));
+                                stage.setTitle("Clash Royale");
+                                stage.setResizable(false);
+                                stage.show();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     } catch (IOException | ClassNotFoundException e) {
                         e.printStackTrace();
