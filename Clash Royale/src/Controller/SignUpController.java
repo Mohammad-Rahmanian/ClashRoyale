@@ -25,6 +25,18 @@ public class SignUpController {
     private Label signUpLabel;
 
     @FXML
+    void showLoginStage(ActionEvent event) {
+        Stage stage = (Stage) signUpLabel.getScene().getWindow();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../View/login.fxml"));
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void signUP(ActionEvent event) {
         String userName = userNameTextField.getText();
         String password = passwordTextField.getText();
@@ -50,33 +62,7 @@ public class SignUpController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                //switch to menu
-                Stage stage = (Stage) signUpLabel.getScene().getWindow();
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/Menu.fxml"));
-                    Parent root = loader.load();
-                    MenuController menuController = loader.getController();
-                    menuController.setPlayerProfile(playerProfile);
-                    stage.setScene(new Scene(root));
-                    stage.setTitle("Clash Royale");
-                    stage.setResizable(false);
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
-        }
-    }
-
-    @FXML
-    void showLoginStage(ActionEvent event) {
-        Stage stage = (Stage) signUpLabel.getScene().getWindow();
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/login.fxml"));
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

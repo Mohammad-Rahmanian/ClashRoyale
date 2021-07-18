@@ -2,25 +2,21 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("View/login.fxml"));
-        Image icon = new Image("Photos/icon.jpg");
-        primaryStage.getIcons().add(icon);
+        Parent root = FXMLLoader.load(getClass().getResource("View/clashRoyaleView.fxml"));
         primaryStage.setTitle("Clash Royale");
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 800, 460));
+        primaryStage.setScene(new Scene(root, 360, 780));
         primaryStage.show();
     }
+
 
     public static void main(String[] args) {
         launch(args);
     }
 }
-
-
