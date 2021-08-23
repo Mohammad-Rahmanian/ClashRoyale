@@ -10,52 +10,65 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SignUpController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0"
+            prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controller.SignUpController">
     <left>
         <AnchorPane BorderPane.alignment="CENTER">
             <children>
                 <ImageView fitHeight="460.0" fitWidth="460.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../Photos/clashroyale.jpg" />
+                        <Image url="@../Photos/clashroyale.jpg"/>
                     </image>
                 </ImageView>
             </children>
         </AnchorPane>
     </left>
-   <center>
-        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="340.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
+    <center>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                    prefHeight="460.0" prefWidth="340.0" style="-fx-background-color: Black;"
+                    BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="117.0" layoutY="8.0" prefHeight="32.0" prefWidth="120.0" text="Sign up" textFill="#5e2dbf">
+                <Label layoutX="117.0" layoutY="8.0" prefHeight="32.0" prefWidth="120.0" text="Sign up"
+                       textFill="#5e2dbf">
                     <font>
-                        <Font size="30.0" />
+                        <Font size="30.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="userNameTextField" layoutX="57.0" layoutY="149.0" prefHeight="40.0" prefWidth="240.0" promptText="Username" />
-                <TextField fx:id="passwordTextField" layoutX="57.0" layoutY="251.0" prefHeight="40.0" prefWidth="240.0" promptText="Password" />
-            <Button layoutX="108.0" layoutY="340.0" mnemonicParsing="false" onAction="#signUP" prefHeight="38.0" prefWidth="102.0" style="-fx-background-color: #5e2dbf;" text="Sign up">
-               <font>
-                  <Font size="20.0" />
-               </font></Button>
-            <Hyperlink layoutX="129.0" layoutY="403.0" onAction="#showLoginStage" prefHeight="35.0" prefWidth="61.0" text="Login" textFill="#5e2dbf">
-               <font>
-                  <Font size="18.0" />
-               </font></Hyperlink>
-            <Label layoutX="53.0" layoutY="119.0" text="Username:" textFill="#5e2dbf">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="53.0" layoutY="219.0" prefHeight="22.0" prefWidth="70.0" text="Password:" textFill="#5e2dbf">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label fx:id="signUpLabel" layoutX="55.0" layoutY="77.0" prefHeight="30.0" prefWidth="246.0" textFill="#cf0000">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
+                <TextField fx:id="userNameTextField" layoutX="57.0" layoutY="149.0" prefHeight="40.0" prefWidth="240.0"
+                           promptText="Username"/>
+                <TextField fx:id="passwordTextField" layoutX="57.0" layoutY="251.0" prefHeight="40.0" prefWidth="240.0"
+                           promptText="Password"/>
+                <Button layoutX="108.0" layoutY="340.0" mnemonicParsing="false" onAction="#signUP" prefHeight="38.0"
+                        prefWidth="102.0" style="-fx-background-color: #5e2dbf;" text="Sign up">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Button>
+                <Hyperlink layoutX="129.0" layoutY="403.0" onAction="#showLoginStage" prefHeight="35.0" prefWidth="61.0"
+                           text="Login" textFill="#5e2dbf">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Hyperlink>
+                <Label layoutX="53.0" layoutY="119.0" text="Username:" textFill="#5e2dbf">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="53.0" layoutY="219.0" prefHeight="22.0" prefWidth="70.0" text="Password:"
+                       textFill="#5e2dbf">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="signUpLabel" layoutX="55.0" layoutY="77.0" prefHeight="30.0" prefWidth="246.0"
+                       textFill="#cf0000">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
             </children>
         </AnchorPane>
-   </center>
+    </center>
 </BorderPane>

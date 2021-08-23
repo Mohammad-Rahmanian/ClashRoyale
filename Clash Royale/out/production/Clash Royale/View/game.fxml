@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import View.GameView?>
+<?import javafx.scene.layout.Pane?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0"
+            prefWidth="360.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controller.GameController">
+    <bottom>
+        <HBox prefHeight="100.0" prefWidth="360.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox prefHeight="100.0" prefWidth="80.0" style="-fx-background-color: #5e5553;">
+                    <children>
+                        <Label prefHeight="35.0" prefWidth="68.0" text="Next:" textFill="#f7d49b">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <ImageView fx:id="nextCardImageView" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true"
+                                   preserveRatio="true"/>
+                    </children>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets left="5.0"/>
+                    </padding>
+                </VBox>
+                <VBox prefHeight="100.0" prefWidth="280.0" style="-fx-background-color: #3165ff;">
+                    <children>
+                        <HBox prefHeight="80.0" prefWidth="260.0" spacing="10.0">
+                            <children>
+                                <ImageView fx:id="firstCardImageView" fitHeight="70.0" fitWidth="60.0"
+                                           onMouseClicked="#playerPickCard" pickOnBounds="true" preserveRatio="true"/>
+                                <ImageView fx:id="secondCardImageView" fitHeight="70.0" fitWidth="60.0"
+                                           onMouseClicked="#playerPickCard" pickOnBounds="true" preserveRatio="true"/>
+                                <ImageView fx:id="thirdCardImageView" fitHeight="70.0" fitWidth="60.0"
+                                           onMouseClicked="#playerPickCard" pickOnBounds="true" preserveRatio="true"/>
+                                <ImageView fx:id="fourthCardImageView" fitHeight="70.0" fitWidth="60.0"
+                                           onMouseClicked="#playerPickCard" pickOnBounds="true" preserveRatio="true"/>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="28.0" prefWidth="266.0" spacing="2.0">
+                            <children>
+                                <Label fx:id="elixirLabel" prefHeight="22.0" prefWidth="29.0" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets left="5.0"/>
+                                    </padding>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Label>
+                                <ProgressBar fx:id="elixirProgressBar" blendMode="COLOR_DODGE" prefHeight="24.0"
+                                             prefWidth="230.0" progress="0.31">
+                                    <padding>
+                                        <Insets top="10.0"/>
+                                    </padding>
+                                </ProgressBar>
+                            </children>
+                        </HBox>
+                    </children>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </VBox>
+            </children>
+        </HBox>
+    </bottom>
+    <top>
+        <HBox prefHeight="40.0" prefWidth="360.0" spacing="200.0" style="-fx-background-color: #68911b;"
+              BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="opponentUserNameLabel" prefHeight="40.0" prefWidth="120.0">
+                    <padding>
+                        <Insets left="10.0"/>
+                    </padding>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <VBox prefHeight="40.0" prefWidth="100.0">
+                    <children>
+                        <Label text="Time left:">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                            <VBox.margin>
+                                <Insets top="2.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="timeLabel">
+                            <font>
+                                <Font size="22.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <Pane maxHeight="640.0" maxWidth="360.0" minHeight="640.0" minWidth="360.0" prefHeight="640.0" prefWidth="360.0"
+              BorderPane.alignment="CENTER">
+            <children>
+                <GameView fx:id="gameView"/>
+            </children>
+        </Pane>
+    </center>
+</BorderPane>
